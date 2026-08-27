@@ -1,490 +1,415 @@
-/* =========================================================
-   SSD COURSE PAGE — CUSTOM BEAUTIFICATION
-   CSS ONLY
-========================================================= */
+/* =====================================================
+   SSD COURSE PAGE — CUSTOM CSS
+   CS6.302 | Monsoon 2026
+===================================================== */
 
 
-/* ---------------------------------------------------------
-   GLOBAL RESET
---------------------------------------------------------- */
+/* ---------- COLOUR PALETTE ---------- */
+
+:root {
+    --pink: #d97991;
+    --pink-dark: #b85d76;
+    --pink-light: #fdecef;
+
+    --cream: #fffaf7;
+    --white: #ffffff;
+
+    --text: #3f3437;
+    --muted: #74676b;
+
+    --border: #efd6dc;
+
+    --header: #f8dce2;
+    --table-head: #f4cbd4;
+    --table-row: #fff8f9;
+}
+
+
+/* ---------- PAGE ---------- */
 
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    margin: 0 !important;
+    background: var(--cream) !important;
 
-    background:
-        linear-gradient(
-            135deg,
-            #f7f7ff 0%,
-            #ffffff 45%,
-            #f5f8ff 100%
-        ) !important;
+    color: var(--text) !important;
 
-    color: #24243a !important;
-
-    font-family:
-        "Quicksand",
-        "Segoe UI",
-        sans-serif !important;
+    font-family: "Quicksand", sans-serif !important;
 
     font-size: 17px !important;
 
-    line-height: 1.75 !important;
-}
-
-
-/* ---------------------------------------------------------
-   MAIN CONTAINER
-   Existing page uses large tables.
---------------------------------------------------------- */
-
-body > table {
-    width: min(1100px, 92%) !important;
-
-    margin: 30px auto !important;
-
-    border-collapse: separate !important;
-
-    border-spacing: 0 18px !important;
-}
-
-
-/* ---------------------------------------------------------
-   HEADER
---------------------------------------------------------- */
-
-h1#home {
-    background:
-        linear-gradient(
-            135deg,
-            #6258e8,
-            #8b7ff5
-        );
-
-    color: white !important;
-
-    border-radius: 20px;
-
-    padding: 45px 30px 10px;
+    line-height: 1.7;
 
     margin: 0;
+}
 
-    font-size: clamp(32px, 5vw, 52px);
+
+/* ---------- MAIN TABLES ---------- */
+
+/*
+   The original page uses tables as its main layout.
+   We keep that structure but make it cleaner.
+*/
+
+body > table {
+    width: min(1100px, 94%) !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
+/* ---------- COURSE HEADER ---------- */
+
+h1 {
+    color: var(--pink-dark);
+
+    font-size: clamp(30px, 5vw, 48px);
+
+    font-weight: 700;
 
     letter-spacing: -1px;
 
-    box-shadow:
-        0 15px 40px rgba(98, 88, 232, 0.25);
+    margin-bottom: 8px;
+}
+
+h3 {
+    color: var(--muted);
+
+    font-weight: 500;
+
+    margin: 5px 0;
 }
 
 
-h1#home + h3 {
-    background:
-        linear-gradient(
-            135deg,
-            #6258e8,
-            #8b7ff5
-        );
+/* ---------- TOP NAVIGATION ---------- */
 
-    color: #eeeeff !important;
-
-    margin: 0 !important;
-
-    padding: 0 30px 5px;
-}
-
-
-h1#home + h3 + h3 {
-    background:
-        linear-gradient(
-            135deg,
-            #6258e8,
-            #8b7ff5
-        );
-
-    color: #eeeeff !important;
-
-    border-radius: 0 0 20px 20px;
-
-    margin: 0 !important;
-
-    padding: 5px 30px 35px;
-}
-
-
-/* ---------------------------------------------------------
-   TOP NAVIGATION
---------------------------------------------------------- */
+/*
+   The navigation is inside the second row of
+   the first large table.
+*/
 
 a {
-    color: #6258e8 !important;
+    color: var(--pink-dark);
+
+    text-decoration: none;
 
     font-weight: 600;
 
-    text-decoration: none !important;
-
-    transition: 0.25s ease;
+    transition: all 0.25s ease;
 }
-
 
 a:hover {
-    color: #e0569b !important;
+    color: #8f4058;
 
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 
-h1#home ~ * a {
-    position: relative;
-}
+/* ---------- NAVIGATION LINKS ---------- */
 
-
-h1#home ~ * a:hover {
-    transform: translateY(-1px);
-}
-
-
-/* ---------------------------------------------------------
-   CONTENT BLOCKS
---------------------------------------------------------- */
-
-body > table:first-of-type td {
-    border-radius: 18px;
-}
-
-
-/* Every major top-level content cell */
-
-body > table:first-of-type tr:nth-child(n+3) td {
-    background: rgba(255, 255, 255, 0.88);
-
-    border: 1px solid #e8e7f3;
-
-    border-radius: 18px;
-
-    padding: 28px !important;
-
-    box-shadow:
-        0 8px 30px rgba(30, 30, 70, 0.06);
-}
-
-
-/* ---------------------------------------------------------
-   SECTION HEADINGS
---------------------------------------------------------- */
-
-b[id] {
+td a[href^="#"] {
     display: inline-block;
 
-    color: #292744;
+    padding: 5px 4px;
 
-    font-size: 27px;
+    border-radius: 6px;
+}
 
-    font-weight: 800;
-
-    margin-bottom: 12px;
-
-    letter-spacing: -0.5px;
+td a[href^="#"]:hover {
+    background: var(--pink-light);
 }
 
 
-b[id]::after {
-    content: "";
+/* ---------- SECTION HEADINGS ---------- */
 
-    display: block;
+b[id] {
+    color: var(--pink-dark);
 
-    width: 45px;
-    height: 4px;
+    font-size: 21px;
 
-    margin-top: 6px;
-
-    border-radius: 10px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #6258e8,
-            #e0569b
-        );
+    font-weight: 700;
 }
 
 
-/* ---------------------------------------------------------
-   PARAGRAPHS
---------------------------------------------------------- */
+/* ---------- HORIZONTAL LINES ---------- */
+
+hr {
+    border: 0;
+
+    border-top: 1px solid var(--border);
+
+    margin: 22px 0;
+}
+
+
+/* ---------- COURSE CONTENT BLOCKS ---------- */
 
 p {
-    color: #55546a;
-
-    line-height: 1.8;
+    color: var(--text);
 }
-
-
-p b {
-    color: #292744;
-}
-
-
-/* ---------------------------------------------------------
-   LISTS
---------------------------------------------------------- */
-
-ul {
-    padding-left: 25px;
-}
-
 
 li {
-    margin-bottom: 9px;
+    margin-bottom: 10px;
+}
 
-    color: #56556a;
+ul {
+    padding-left: 28px;
 }
 
 
-li::marker {
-    color: #6258e8;
+/* ---------- COURSE POLICY ---------- */
+
+#cpolicy {
+    display: inline-block;
+
+    background: var(--pink-light);
+
+    padding: 8px 15px;
+
+    border-radius: 10px;
 }
 
 
-/* ---------------------------------------------------------
-   TABLES
---------------------------------------------------------- */
+/* ---------- SCHEDULE TABLES ---------- */
 
-table {
-    width: 100% !important;
+table.tg {
+    width: min(1100px, 94%) !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
 
     border-collapse: separate !important;
 
     border-spacing: 0 !important;
 
-    overflow: hidden;
+    border: 1px solid var(--border) !important;
 
     border-radius: 14px;
 
-    border: 1px solid #deddec !important;
+    overflow: hidden;
 
-    background: white;
+    background: var(--white);
 
     box-shadow:
-        0 8px 25px rgba(30, 30, 70, 0.05);
+        0 8px 25px rgba(120, 70, 80, 0.06);
 }
 
 
-th {
-    background:
-        linear-gradient(
-            135deg,
-            #6258e8,
-            #7a70eb
-        ) !important;
+/* ---------- TABLE HEADER ---------- */
 
-    color: white !important;
+.tg th {
+    background: var(--table-head) !important;
+
+    color: #5b3942 !important;
 
     font-weight: 700;
 
     padding: 14px 12px !important;
 
     border: none !important;
+
+    border-bottom: 1px solid var(--border) !important;
 }
 
 
-td {
-    padding: 13px 12px !important;
+/* ---------- TABLE CELLS ---------- */
 
-    border-bottom: 1px solid #ecebf4 !important;
+.tg td {
+    padding: 12px !important;
 
-    border-right: 1px solid #ecebf4 !important;
+    border: none !important;
 
-    color: #55546a;
+    border-bottom: 1px solid #f3e4e7 !important;
+
+    color: var(--text);
 }
 
 
-tr:last-child td {
-    border-bottom: none !important;
+/* ---------- ALTERNATING ROWS ---------- */
+
+.tg tbody tr:nth-child(odd) {
+    background: var(--table-row);
+}
+
+.tg tbody tr:nth-child(even) {
+    background: var(--white);
 }
 
 
-tbody tr:nth-child(even) td {
-    background: #faf9ff;
+/* ---------- TABLE HOVER ---------- */
+
+.tg tbody tr:hover {
+    background: var(--pink-light);
+
+    transition: background 0.2s ease;
 }
 
 
-tbody tr:hover td {
-    background: #f1efff;
+/* ---------- LECTURE NUMBER ---------- */
 
-    transition: 0.2s;
+.tg-c3ow:first-child {
+    font-weight: 700;
+
+    color: var(--pink-dark);
 }
 
 
-/* ---------------------------------------------------------
-   SCHEDULE TABLES
---------------------------------------------------------- */
+/* ---------- LAB / EXAM TABLES ---------- */
 
-.tg {
-    margin-top: 25px !important;
-
-    margin-bottom: 35px !important;
-}
-
-
-.tg-7btt,
 .tg-bobw {
-    background:
-        linear-gradient(
-            135deg,
-            #6258e8,
-            #7c72ed
-        ) !important;
+    background: var(--table-head) !important;
 
-    color: white !important;
+    color: #5b3942 !important;
 }
 
-
-.tg-c3ow,
 .tg-8d8j {
-    background: white !important;
+    padding: 12px !important;
 
-    transition: 0.2s;
+    border-bottom: 1px solid #f3e4e7 !important;
 }
 
 
-.tg-c3ow:hover,
-.tg-8d8j:hover {
-    background: #f3f1ff !important;
+/* ---------- MATERIAL LINKS ---------- */
+
+.tg td a {
+    color: var(--pink-dark);
+
+    font-size: 15px;
+
+    font-weight: 700;
+}
+
+.tg td a:hover {
+    background: var(--pink-light);
+
+    padding: 3px 6px;
+
+    border-radius: 6px;
 }
 
 
-/* ---------------------------------------------------------
-   SECTION TOP LINKS
---------------------------------------------------------- */
+/* ---------- "GO TO TOP" LINKS ---------- */
 
 a[href="#home"] {
-    display: inline-block;
+    font-size: 13px;
 
-    background: #f0efff;
+    color: var(--muted);
 
-    color: #6258e8 !important;
-
-    padding: 4px 10px;
-
-    border-radius: 50px;
-
-    font-size: 12px;
-
-    margin-left: 5px;
+    font-weight: 500;
 }
-
 
 a[href="#home"]:hover {
-    background: #6258e8;
+    color: var(--pink-dark);
 
-    color: white !important;
+    background: var(--pink-light);
+
+    padding: 4px 7px;
+
+    border-radius: 6px;
 }
 
 
-/* ---------------------------------------------------------
-   MATERIAL LINKS
---------------------------------------------------------- */
+/* ---------- COURSE POLICY GRADING TABLE ---------- */
 
-td a[target="_blank"] {
-    display: inline-block;
+td table {
+    width: min(700px, 90%) !important;
 
-    padding: 3px 8px;
+    margin: 20px auto !important;
 
-    margin: 2px;
+    background: white;
 
-    background: #f2f1ff;
+    border-collapse: collapse;
+}
 
-    border-radius: 5px;
+td table th {
+    background: var(--table-head);
+
+    color: #5b3942;
+
+    padding: 12px;
+
+    border: 1px solid var(--border);
+}
+
+td table td {
+    padding: 11px;
+
+    border: 1px solid var(--border);
+}
+
+
+/* ---------- LAST UPDATED / CLOCK ---------- */
+
+#lastUpdated,
+#txt {
+    color: var(--muted);
 
     font-size: 13px;
 }
 
 
-td a[target="_blank"]:hover {
-    background: #6258e8;
+/* ---------- STAFF SECTION ---------- */
 
-    color: white !important;
+#staff {
+    display: inline-block;
+
+    background: var(--pink-light);
+
+    padding: 8px 15px;
+
+    border-radius: 10px;
 }
 
 
-/* ---------------------------------------------------------
-   HORIZONTAL RULES
---------------------------------------------------------- */
+/* ---------- STAFF IMAGES ---------- */
 
-hr {
-    border: none !important;
+img {
+    border-radius: 10px;
 
-    height: 1px;
+    border: 3px solid white;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #dcd9ef,
-            transparent
-        );
-
-    margin: 28px 0;
+    box-shadow:
+        0 5px 18px rgba(100, 50, 60, 0.10);
 }
 
 
-/* ---------------------------------------------------------
-   IMPORTANT LINKS / STAFF AREA
---------------------------------------------------------- */
+/* ---------- SMOOTH CONTENT FEEL ---------- */
 
-a[href*="linkedin"] {
-    color: #2867b2 !important;
+body > table > tbody > tr > td {
+    padding: 12px;
 }
 
 
-a[href*="iiit.ac.in"] {
-    font-weight: 700;
-}
+/* ---------- MOBILE RESPONSIVENESS ---------- */
 
-
-/* ---------------------------------------------------------
-   MOBILE RESPONSIVENESS
---------------------------------------------------------- */
-
-@media (max-width: 800px) {
+@media (max-width: 768px) {
 
     body {
         font-size: 15px !important;
     }
 
-    body > table {
-        width: 94% !important;
-
-        margin: 15px auto !important;
+    body > table,
+    table.tg {
+        width: 96% !important;
     }
 
-    h1#home {
-        font-size: 32px;
-
-        padding: 30px 20px 10px;
+    h1 {
+        font-size: 30px;
     }
 
-    h1#home + h3 {
-        font-size: 18px;
-
-        padding: 0 20px;
-    }
-
-    h1#home + h3 + h3 {
+    h3 {
         font-size: 17px;
-
-        padding: 5px 20px 25px;
     }
 
-    body > table:first-of-type tr:nth-child(n+3) td {
-        padding: 20px !important;
-    }
+    /*
+       Make wide course tables scroll horizontally
+       instead of breaking the entire page.
+    */
 
-    table {
+    table.tg {
         display: block;
 
         overflow-x: auto;
@@ -492,21 +417,33 @@ a[href*="iiit.ac.in"] {
         white-space: nowrap;
     }
 
+    .tg th,
+    .tg td {
+        padding: 9px !important;
+    }
+
 }
 
 
-/* ---------------------------------------------------------
-   SMALL SCREEN
---------------------------------------------------------- */
+/* ---------- SMALL SCREEN ---------- */
 
 @media (max-width: 500px) {
 
-    b[id] {
-        font-size: 22px;
+    body {
+        font-size: 14px !important;
     }
 
-    h1#home {
-        font-size: 27px;
+    h1 {
+        font-size: 25px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    .tg th,
+    .tg td {
+        padding: 7px !important;
     }
 
 }
